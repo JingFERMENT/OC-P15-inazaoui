@@ -28,6 +28,6 @@ class UserMediaRelationTest extends TestCase
         $user->addMedia($media);
         $user->removeMedia($media);
         Assert::assertFalse($user->getMedias()->contains($media));
-        Assert::assertNull($media->getUser());
+        Assert::assertSame($user, $media->getUser());
     }
 }
