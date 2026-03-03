@@ -161,11 +161,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeMedia(Media $media): static
     {
-        if ($this->medias->removeElement($media)) {
-            if ($media->getUser() === $this) {
-                $media->setUser(null);
-            }
-        }
+        $this->medias->removeElement($media);
 
         return $this;
     }
