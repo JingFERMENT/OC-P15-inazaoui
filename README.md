@@ -1,9 +1,12 @@
-# Optimization of Ina Zaoui’s Photography Website
+# Optimization of Ina Zaoui’s Photography Portfolio Website
 
-![PHP](https://img.shields.io/badge/PHP-8.4-blue)
-![Symfony](https://img.shields.io/badge/Symfony-7.4-black)
-![Tests](https://img.shields.io/badge/tests-PHPUnit-green)
-![Docker](https://img.shields.io/badge/Docker-enabled-blue)
+![Guests Page Before](public/images/logo.png)
+![PHP](https://img.shields.io/badge/PHP-8.4-777BB4?logo=php&logoColor=white)
+![Symfony](https://img.shields.io/badge/Symfony-7.4-000000?logo=symfony&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?logo=postgresql&logoColor=white)
+![Tests](https://img.shields.io/badge/Tests-PHPUnit-green)
+![Docker](https://img.shields.io/badge/Docker-enabled-2496ED?logo=docker&logoColor=white)
+![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
 
 ## Project description
 
@@ -41,10 +44,10 @@ The project aims to modernize and improve an existing website used to showcase l
 
 ## Prerequisites
 
-- PHP : >8.2
+- PHP : 8.2+
 - Composer
 - Symfony CLI
-- PostgreSQL
+- PostgreSQL: 16+
 
 ---
 
@@ -70,6 +73,10 @@ Create or update your .env.local file with your local configuration:
 DATABASE_URL="postgresql://username:password@127.0.0.1:5432/ina_zaoui?serverVersion=16&charset=utf8"
 MAILER_DSN=null://null
 ```
+
+- `DATABASE_URL`: configure with your PostgreSQL credentials
+- `MAILER_DSN`: configure with your mail service, or keep `null://null` to disable emails in development
+
 ### 4. Create the database
 ```bash
 php bin/console doctrine:database:create
@@ -149,6 +156,8 @@ vendor/bin/php-cs-fixer fix
 ```
 ## PERFORMANCE IMPROVEMENTS
 
+### Guests page
+![Guests Page Before](docs/Guests_page_performance_before.png)
 ## Improve the query
 ### Add CACHE
 ### Add Paginations 
@@ -156,10 +165,7 @@ vendor/bin/php-cs-fixer fix
 ### Compress the images from jpg to webp
 
 
-## Screenshots
 
-### Guests page
-![Guests Page Before](docs/homepage.png)
 
 
 ## CONTRIBUTION 
