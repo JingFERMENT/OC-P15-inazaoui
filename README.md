@@ -1,4 +1,4 @@
-# Ina Zaoui
+# Optimization of Ina Zaoui’s Photography Portfolio Website
 
 ![PHP](https://img.shields.io/badge/PHP-8.4-blue)
 ![Symfony](https://img.shields.io/badge/Symfony-7.4-black)
@@ -10,21 +10,15 @@
 Ina Zaoui is a photography portfolio web application developed with Symfony. 
 The project aims to modernize and improve an existing website used to showcase landscape photography from around the world.
 
-The application includes:
-- a **front office** for visitors to explore the portfolio;
-- a **back office** for the administrator to manage albums, media, and guest accounts, and for **guest photographers**, allowing them to manage their own media.
-
-The main objectives of the project were to:
-- migrate the application to a more recent version;
-- improve application security and maintainability;
-- secure media uploads;
-- implement guest account management;
-- optimize page performance;
-- add automated tests;
-- write technical documentation for future developers;
-- implement a continuous integration pipeline.
-
-This project also contributed to the development of professional skills such as responsibility, time management, communication, and collaboration.
+## Project objectives 
+  - improve application security and maintainability 
+  - migrate the application to a more recent version
+  - secure media uploads
+  - implement new features (ex: guest account management)
+  - optimize page performance
+  - add automated tests
+  - write a documentation for future developers
+  - implement a continuous integration pipeline.
 
 ---
 
@@ -35,7 +29,7 @@ This project also contributed to the development of professional skills such as 
 - **Database:** PostgreSQL 16
 - **ORM:** Doctrine ORM 3.x
 - **Templating Engine:** Twig 3.x
-- **Containerization:** Docker and Docker Compose
+- **Containerization:** Docker
 - **Continuous Integration:** GitHub Actions
 
 ### Development and Code Quality Tools
@@ -44,9 +38,7 @@ This project also contributed to the development of professional skills such as 
 - **PHPStan** for static analysis
 - **PHP CS Fixer** for coding standards
 
-## Key Dependencies
-
-This project relies on several Symfony bundles and PHP packages, including:
+### Key Dependencies
 
 - **Symfony Mailer**
 - **LiipImagineBundle**
@@ -58,8 +50,6 @@ This project relies on several Symfony bundles and PHP packages, including:
 ---
 
 ## Prerequisites
-
-Before starting, make sure you have installed:
 
 - PHP : >8.2
 - Composer
@@ -74,90 +64,101 @@ Before starting, make sure you have installed:
 
 ```bash
 git clone https://github.com/JingFERMENT/OC-P15-inazaoui
-cd ina-zaoui
+cd OC-P15-inazaoui
+```
 
 ### 2. Install dependencies
+```bash
 compse install 
+```
 
-3. Configure environment variables
+### 3. Configure environment variables
 
 Create or update your .env.local file with your local configuration:
-
-APP_ENV=dev
 
 DATABASE_URL="postgresql://username:password@127.0.0.1:5432/ina_zaoui?serverVersion=16&charset=utf8"
 
 MAILER_DSN=null://null
 
-4. Create the database
+### 4. Create the database
+```bash
 php bin/console doctrine:database:create
+```
 
-5. Run migrations
+### 5. Run migrations
+```bash
 php bin/console doctrine:migrations:migrate
+```
 
-6. Load fixtures if available
+### 6. Load fixtures
+```bash
 php bin/console doctrine:fixtures:load
+```
 
-How to install and run the project
+## How to install and run the project
 
 Start the Symfony server
+
+```bash
 symfony server:start
+```
 
 Then open your browser and go to:
 http://127.0.0.1:8000
 
-USAGE
+
+## USAGE
 The application contains two main parts:
 
-Front Office
+### Front Office
 
 The front office is the public part of the website.
 Visitors can browse the portfolio pages and discover Ina Zaoui’s photography work.
 
-Back Office / Admin
+### Back Office / Admin
 
-The admin area allows authenticated users to manage content.
+The admin area allows authenticated users to manage content. It Depends on the role:
 
-Depending on the role:
+- **Admin** can manage albums, all media, and guests,
+- **Guests** can only access and manage their own media.
 
-Ina (admin) can manage albums, all media, and guests,
+### Main features include:
 
-Guests can only access and manage their own media.
+- viewing albums and media
+- uploading images
+- managing guest accounts
+- blocking or deleting guests
+- accessing guest pages. 
 
-
-Main features include:
-
-viewing albums and media,
-
-uploading images,
-
-managing guest accounts,
-
-blocking or deleting guests,
-
-accessing guest pages. 
-
-Tests
+### Tests
 The project requires a code coverage report above 70%.
-This project includes automated tests to ensure the front office works correctly and to maintain code quality.
 
 Run PHPUnit tests
+```bash
 php bin/phpunit
+```
 
 Run tests with coverage
+```bash
 php bin/phpunit --coverage-html var/coverage
+```
 
 After running this command, open the coverage report in:
+```bash
 open var/coverage/index.html
+```
 
-Useful quality commands
-Run PHPStan:
+Run quality commands
+PHPStan:
+```bash
 vendor/bin/phpstan analyse
-
-Run PHP CS Fixer:
+```
+PHP CS Fixer:
+```bash
 vendor/bin/php-cs-fixer fix
+```
 
 Contribute to the project
-Please refer to CONTRIBUTING.md
+CONTRIBUTING.md
 
 
