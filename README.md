@@ -1,70 +1,64 @@
-# Ina Zaoui
+# Optimization of a Photography Portfolio Website
 
-![PHP](https://img.shields.io/badge/PHP-8.4-blue)
-![Symfony](https://img.shields.io/badge/Symfony-7.4-black)
-![Tests](https://img.shields.io/badge/tests-PHPUnit-green)
-![Docker](https://img.shields.io/badge/Docker-enabled-blue)
+<p align="center">
+  <img src="docs/apercu_site.png" alt="aperçu du site" width="800">
+</p>
 
 ## Project description
 
 Ina Zaoui is a photography portfolio web application developed with Symfony. 
-The project aims to modernize and improve an existing website used to showcase landscape photography from around the world.
 
-The application includes:
-- a **front office** for visitors to explore the portfolio;
-- a **back office** for the administrator to manage albums, media, and guest accounts, and for **guest photographers**, allowing them to manage their own media.
+This application is divided into two main areas:
 
-The main objectives of the project were to:
-- migrate the application to a more recent version;
-- improve application security and maintainability;
-- secure media uploads;
-- implement guest account management;
-- optimize page performance;
-- add automated tests;
-- write technical documentation for future developers;
-- implement a continuous integration pipeline.
+### Front Office
 
-This project also contributed to the development of professional skills such as responsibility, time management, communication, and collaboration.
+The public area of the website, where visitors can browse the portfolio and discover Ina Zaoui’s photography work.
+
+### Back Office
+
+The private area of the website, where authenticated users can manage content according to their role:
+
+- **Admin** can manage albums, all media, and guest accounts
+- **Guests** can manage only their own media
+
+### Improvements implemented
+
+ 1. migrated the project from **Symfony 5.4** to **Symfony 7.4 (LTS)**
+ 2. secured media uploads and authentication handling
+ 3. add **guest account management** with email invitations and password setup
+ 4. improved performance by fixing **N+1 queries**, compressing images, and minifying CSS files
+ 5. improved code quality with **automated tests and static analysis**
+ 6. wrote **technical documentation** for future developers
+ 7. set up a **continuous integration pipeline**.
 
 ---
 
 ## Technical Stack
 
-- **Language:** PHP 8.4
-- **Framework:** Symfony 7.4
-- **Database:** PostgreSQL 16
-- **ORM:** Doctrine ORM 3.x
-- **Templating Engine:** Twig 3.x
-- **Containerization:** Docker and Docker Compose
-- **Continuous Integration:** GitHub Actions
-
-### Development and Code Quality Tools
-
-- **PHPUnit** for automated testing
-- **PHPStan** for static analysis
-- **PHP CS Fixer** for coding standards
+![PHP](https://img.shields.io/badge/PHP-8.4-777BB4?style=flat-square&logo=php&logoColor=white)
+![Symfony](https://img.shields.io/badge/Symfony-7.4-000000?style=flat-square&logo=symfony&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=flat-square&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![PHPUnit](https://img.shields.io/badge/Tests-PHPUnit-6C3483?style=flat-square)
+![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 
 ## Key Dependencies
 
-This project relies on several Symfony bundles and PHP packages, including:
-
-- **Symfony Mailer**
-- **LiipImagineBundle**
-- **SensioLabs Minify Bundle**
-- **Zenstruck Foundry**
-- **DAMA Doctrine Test Bundle**
-- **Doctrine Fixtures Bundle**
+- Symfony Mailer
+- LiipImagineBundle
+- SensioLabs Minify Bundle
+- Zenstruck Foundry
+- DAMA Doctrine Test Bundle
+- Doctrine Fixtures Bundle
 
 ---
 
 ## Prerequisites
 
-Before starting, make sure you have installed:
-
-- PHP : >8.2
+- PHP : 8.2+
 - Composer
 - Symfony CLI
-- PostgreSQL
+- PostgreSQL: 16+
 
 ---
 
@@ -74,90 +68,96 @@ Before starting, make sure you have installed:
 
 ```bash
 git clone https://github.com/JingFERMENT/OC-P15-inazaoui
-cd ina-zaoui
+cd OC-P15-inazaoui
+```
 
 ### 2. Install dependencies
-compse install 
+```bash
+compose install 
+```
 
-3. Configure environment variables
+### 3. Configure environment variables
 
 Create or update your .env.local file with your local configuration:
 
-APP_ENV=dev
-
+```bash
 DATABASE_URL="postgresql://username:password@127.0.0.1:5432/ina_zaoui?serverVersion=16&charset=utf8"
-
 MAILER_DSN=null://null
+```
 
-4. Create the database
+- `DATABASE_URL`: configure with your PostgreSQL credentials
+- `MAILER_DSN`: configure with your mail service, or keep `null://null` to disable emails in development
+
+### 4. Create the database
+```bash
 php bin/console doctrine:database:create
+```
 
-5. Run migrations
+### 5. Run migrations
+```bash
 php bin/console doctrine:migrations:migrate
+```
 
-6. Load fixtures if available
+### 6. Load fixtures(optional)
+```bash
 php bin/console doctrine:fixtures:load
+```
 
-How to install and run the project
+## Usage
 
-Start the Symfony server
+### Start the Symfony server
+
+```bash
 symfony server:start
+```
 
 Then open your browser and go to:
 http://127.0.0.1:8000
 
-USAGE
-The application contains two main parts:
 
-Front Office
+### Run the tests
 
-The front office is the public part of the website.
-Visitors can browse the portfolio pages and discover Ina Zaoui’s photography work.
-
-Back Office / Admin
-
-The admin area allows authenticated users to manage content.
-
-Depending on the role:
-
-Ina (admin) can manage albums, all media, and guests,
-
-Guests can only access and manage their own media.
-
-
-Main features include:
-
-viewing albums and media,
-
-uploading images,
-
-managing guest accounts,
-
-blocking or deleting guests,
-
-accessing guest pages. 
-
-Tests
-The project requires a code coverage report above 70%.
-This project includes automated tests to ensure the front office works correctly and to maintain code quality.
-
-Run PHPUnit tests
+PHPUnit
+```bash
 php bin/phpunit
+```
 
-Run tests with coverage
+Run tests with coverage and open the report
+```bash
 php bin/phpunit --coverage-html var/coverage
-
-After running this command, open the coverage report in:
 open var/coverage/index.html
+```
 
-Useful quality commands
-Run PHPStan:
+### Run quality commands
+
+PHPStan:
+```bash
 vendor/bin/phpstan analyse
-
-Run PHP CS Fixer:
+```
+PHP CS Fixer:
+```bash
 vendor/bin/php-cs-fixer fix
+```
 
-Contribute to the project
-Please refer to CONTRIBUTING.md
+## Performance improvements
+
+### RESULTS
+### Guests page
+| Before | After |
+|--------|-------|
+| <img src="docs/Guests_page_performance_before.png" alt="Before" width="600"> | <img src="docs/Guests_page_performance_after.png" alt="After" width="600"> |
+
+## Improve the query
+
+### Add CACHE
+
+### Add Paginations 
+
+### Minfiy the css file
+
+### Compress the images from jpg to webp
+
+## CONTRIBUTION 
+To contribute to this project, please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
