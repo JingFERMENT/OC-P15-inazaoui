@@ -1,4 +1,4 @@
-# Optimization of Ina Zaoui’s Photography Portfolio Website
+# Optimization of Ina Zaoui’s Photography Website
 
 ![PHP](https://img.shields.io/badge/PHP-8.4-blue)
 ![Symfony](https://img.shields.io/badge/Symfony-7.4-black)
@@ -9,16 +9,6 @@
 
 Ina Zaoui is a photography portfolio web application developed with Symfony. 
 The project aims to modernize and improve an existing website used to showcase landscape photography from around the world.
-
-## Project objectives 
-  - improve application security and maintainability 
-  - migrate the application to a more recent version
-  - secure media uploads
-  - implement new features (ex: guest account management)
-  - optimize page performance
-  - add automated tests
-  - write a documentation for future developers
-  - implement a continuous integration pipeline.
 
 ---
 
@@ -40,12 +30,12 @@ The project aims to modernize and improve an existing website used to showcase l
 
 ### Key Dependencies
 
-- **Symfony Mailer**
-- **LiipImagineBundle**
-- **SensioLabs Minify Bundle**
-- **Zenstruck Foundry**
-- **DAMA Doctrine Test Bundle**
-- **Doctrine Fixtures Bundle**
+- Symfony Mailer
+- LiipImagineBundle
+- SensioLabs Minify Bundle
+- Zenstruck Foundry
+- DAMA Doctrine Test Bundle
+- Doctrine Fixtures Bundle
 
 ---
 
@@ -69,17 +59,17 @@ cd OC-P15-inazaoui
 
 ### 2. Install dependencies
 ```bash
-compse install 
+compose install 
 ```
 
 ### 3. Configure environment variables
 
 Create or update your .env.local file with your local configuration:
 
+```bash
 DATABASE_URL="postgresql://username:password@127.0.0.1:5432/ina_zaoui?serverVersion=16&charset=utf8"
-
 MAILER_DSN=null://null
-
+```
 ### 4. Create the database
 ```bash
 php bin/console doctrine:database:create
@@ -157,8 +147,22 @@ PHP CS Fixer:
 ```bash
 vendor/bin/php-cs-fixer fix
 ```
+## PERFORMANCE IMPROVEMENTS
 
-Contribute to the project
-CONTRIBUTING.md
+## Improve the query
+### Add CACHE
+### Add Paginations 
+### Minfiy the css file
+### Compress the images from jpg to webp
+
+
+## Screenshots
+
+### Guests page
+![Guests Page Before](docs/homepage.png)
+
+
+## CONTRIBUTION 
+To contribute to this project, please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
