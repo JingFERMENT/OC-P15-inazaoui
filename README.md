@@ -1,44 +1,58 @@
-# Optimization of Ina Zaoui’s Photography Portfolio Website
-
-![Guests Page Before](public/images/logo.png)
-![PHP](https://img.shields.io/badge/PHP-8.4-777BB4?logo=php&logoColor=white)
-![Symfony](https://img.shields.io/badge/Symfony-7.4-000000?logo=symfony&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?logo=postgresql&logoColor=white)
-![Tests](https://img.shields.io/badge/Tests-PHPUnit-green)
-![Docker](https://img.shields.io/badge/Docker-enabled-2496ED?logo=docker&logoColor=white)
-![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
+# Optimization of a Photography Portfolio Website
 
 ## Project description
 
 Ina Zaoui is a photography portfolio web application developed with Symfony. 
-The project aims to modernize and improve an existing website used to showcase landscape photography from around the world.
+
+The application provides:
+- a **front office** where visitors can explore the portfolio;
+- a **back office** where the administrator can manage albums, media, and guest accounts, and where **guest photographers** can manage their own media.
+
+## Improvements implemented
+
+This project focused on modernizing, securing, and improving the existing application.  
+The following enhancements have been implemented:
+
+- migrated the project from **Symfony 5.4** to **Symfony 7.4 (LTS)**
+- secured media uploads through file validation and safer authentication-related data handling
+- implemented **guest account management**, including email invitations and password setup
+- improved performance by reducing **N+1 queries**, compressing images, and minifying CSS files
+- strengthened code quality with **automated tests and static analysis tools**
+- provided clear **technical documentation** for future developers
+- set up a **continuous integration pipeline**.
 
 ---
 
 ## Technical Stack
 
-- **Language:** PHP 8.4
-- **Framework:** Symfony 7.4
-- **Database:** PostgreSQL 16
-- **ORM:** Doctrine ORM 3.x
-- **Templating Engine:** Twig 3.x
-- **Containerization:** Docker
-- **Continuous Integration:** GitHub Actions
+<p>
+  <img src="https://img.shields.io/badge/PHP-8.4-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/Symfony-7.4-000000?style=flat-square&logo=symfony&logoColor=white" alt="Symfony">
+  <img src="https://img.shields.io/badge/PostgreSQL-16-336791?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Doctrine-ORM%203.x-FC6A31?style=flat-square&logo=doctrine&logoColor=white" alt="Doctrine ORM">
+  <img src="https://img.shields.io/badge/Twig-3.x-85EA2D?style=flat-square&logo=twig&logoColor=black" alt="Twig">
+  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/GitHub%20Actions-CI-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions">
+</p>
 
 ### Development and Code Quality Tools
 
-- **PHPUnit** for automated testing
-- **PHPStan** for static analysis
-- **PHP CS Fixer** for coding standards
+<p>
+  <img src="https://img.shields.io/badge/PHPUnit-Tests-6C3483?style=flat-square" alt="PHPUnit">
+  <img src="https://img.shields.io/badge/PHPStan-Static%20Analysis-4B32C3?style=flat-square" alt="PHPStan">
+  <img src="https://img.shields.io/badge/PHP%20CS%20Fixer-Code%20Style-8A2BE2?style=flat-square" alt="PHP CS Fixer">
+</p>
 
 ### Key Dependencies
 
-- Symfony Mailer
-- LiipImagineBundle
-- SensioLabs Minify Bundle
-- Zenstruck Foundry
-- DAMA Doctrine Test Bundle
-- Doctrine Fixtures Bundle
+<p>
+  <img src="https://img.shields.io/badge/Symfony%20Mailer-Mailer-000000?style=flat-square&logo=symfony&logoColor=white" alt="Symfony Mailer">
+  <img src="https://img.shields.io/badge/LiipImagineBundle-Images-4CAF50?style=flat-square" alt="LiipImagineBundle">
+  <img src="https://img.shields.io/badge/SensioLabs%20Minify-Minify-FF9800?style=flat-square" alt="SensioLabs Minify Bundle">
+  <img src="https://img.shields.io/badge/Zenstruck%20Foundry-Foundry-009688?style=flat-square" alt="Zenstruck Foundry">
+  <img src="https://img.shields.io/badge/DAMA%20Doctrine-Test%20Bundle-3F51B5?style=flat-square" alt="DAMA Doctrine Test Bundle">
+  <img src="https://img.shields.io/badge/Doctrine%20Fixtures-Fixtures-FC6A31?style=flat-square&logo=doctrine&logoColor=white" alt="Doctrine Fixtures Bundle">
+</p>
 
 ---
 
