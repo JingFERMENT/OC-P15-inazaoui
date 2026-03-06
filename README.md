@@ -1,11 +1,11 @@
 # Optimization of a Photography Portfolio Website
+<p align="center">
+  <img src="docs/apercu_site.png" alt="aperçu du site" width="500">
+</p>
 
 ## Project description
 
 Ina Zaoui is a photography portfolio web application developed with Symfony. 
-<p align="center">
-  <img src="docs/apercu_site" alt="aperçu du site" width="500">
-</p>
 
 This application is divided into two main areas:
 
@@ -22,9 +22,6 @@ The private area of the website, where authenticated users can manage content ac
 
 ### Improvements implemented
 
-This project focused on modernizing, securing, and improving the application.  
-
-The following enhancements have been implemented:
  1. migrated the project from **Symfony 5.4** to **Symfony 7.4 (LTS)**
  2. secured media uploads and authentication handling
  3. add **guest account management** with email invitations and password setup
@@ -124,13 +121,14 @@ PHPUnit
 php bin/phpunit
 ```
 
-Run tests with coverage and open the coverage report
+Run tests with coverage and open the report
 ```bash
 php bin/phpunit --coverage-html var/coverage
 open var/coverage/index.html
 ```
 
-Run quality commands
+### Run quality commands
+
 PHPStan:
 ```bash
 vendor/bin/phpstan analyse
@@ -140,21 +138,18 @@ PHP CS Fixer:
 vendor/bin/php-cs-fixer fix
 ```
 
-## PERFORMANCE IMPROVEMENTS
+## Performance improvements
 
 ### Guests page
-![Guests Page Before](docs/Guests_page_performance_before.png)
-![Guests Page Before](docs/Guests_page_performance_before.png)
+| Before | After |
+|-------|-------|
+| ![Avant](docs/Guests_page_performance_before.png) | ![Après](docs/Guests_page_performance_after.png) |
 
 ## Improve the query
 ### Add CACHE
 ### Add Paginations 
 ### Minfiy the css file
 ### Compress the images from jpg to webp
-
-
-
-
 
 ## CONTRIBUTION 
 To contribute to this project, please read [CONTRIBUTING.md](CONTRIBUTING.md).
