@@ -36,6 +36,7 @@ class HomeController extends AbstractController
 
         $guests = $cache->get($cacheKey, function (ItemInterface $item) use ($userRepository, $limit, $offset) {
             $item->expiresAfter(3600); // adapter à la fréquence des mises à jour
+
             return $userRepository->findForActiveGuestsWithMediaCount($limit, $offset);
         });
 
