@@ -32,8 +32,10 @@ class HomeController extends AbstractController
         $limit = 6;
         $offset = $limit * ($page - 1);
 
-        $guests = $cache->get('guests_with_media_count', function (ItemInterface $item) use ($userRepository, $limit, $offset) {
-            $item->expiresAfter(300); // adapter à la fréquence des mises à jour
+        $cacheKey = sprintf('guests_with_media_count_page_%d_limit_%d', $page, $limit);
+
+        $guests = $cache->get($cacheKey, function (ItemInterface $item) use ($userRepository, $limit, $offset) {
+            $item->expiresAfter(3600); // adapter à la fréquence des mises à jour
 
             return $userRepository->findForActiveGuestsWithMediaCount($limit, $offset);
         });
@@ -49,21 +51,27 @@ class HomeController extends AbstractController
     }
 
     #[Route('/guest/{id}', name: 'guest', requirements: ['id' => '\d+'])]
-    public function guest(User $guest, Request $request, MediaRepository $mediaRepository): Response
+    public function guest(User $guest, Request $request, MediaRepository $mediaRepository, CacheInterface $cache): Response
     {
         $page = $request->query->getInt('page', 1);
         $limit = 6;
         $offset = $limit * ($page - 1);
 
+        $cacheKey = sprintf('one_guest_with_media_count_guest_%d_page_%d_limit_%d', $guest->getId(), $page, $limit);
+
         // total media for this guest
         $total = $mediaRepository->count(['user' => $guest]);
 
-        $medias = $mediaRepository->findBy(
-            ['user' => $guest],
-            ['id' => 'DESC'],
-            $limit,
-            $offset,
-        );
+        $medias = $cache->get($cacheKey, function (ItemInterface $item) use ($mediaRepository, $guest, $limit, $offset) {
+            $item->expiresAfter(3600); // adapter à la fréquence des mises à jour
+
+            return $mediaRepository->findBy(
+                ['user' => $guest],
+                ['id' => 'DESC'],
+                $limit,
+                $offset,
+            );
+        });
 
         return $this->render('front/guest.html.twig', [
             'guest' => $guest,

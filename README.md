@@ -139,9 +139,14 @@ cd OC-P15-inazaoui
 composer install 
 ```
 
-### 3. Configure environment variables
+### 3. Docker (optional)
+```bash
+docker compose up -d
+```
 
-Create or update your .env.local file with your local configuration:
+### 4. Configure environment variables
+
+The current .env file is configured for the PostgreSQL database defined in docker-compose.yml. However, you can create a .env.local file if necessary to configure access to the database
 
 ```bash
 DATABASE_URL="postgresql://username:password@127.0.0.1:5432/ina_zaoui?serverVersion=16&charset=utf8"
@@ -151,12 +156,17 @@ MAILER_DSN=null://null
 - `DATABASE_URL`: configure with your PostgreSQL credentials
 - `MAILER_DSN`: configure with your mail service, or keep `null://null` to disable emails in development
 
-### 4. Create the database
+### 5. Supprimer la base de données
+```bash
+symfony console doctrine:database:drop --force --if-exists
+```
+
+### 6. Create the database
 ```bash
 php bin/console doctrine:database:create
 ```
 
-### 5. Run migrations
+### 7. Run migrations
 ```bash
 php bin/console doctrine:migrations:migrate
 ```
@@ -220,7 +230,7 @@ Main optimization areas:
 These improvements help reduce server workload and improve page loading speed.
 
 For detailed analysis and measurements, see the full report:  
-[Performance Report](Technical-documentation.md)
+[Performance Report](docs/performance_report.pdf)
 
 ## Technical Documentation
 

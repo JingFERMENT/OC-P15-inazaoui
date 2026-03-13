@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
         ]);
 
         // random active guests
-        $randomActiveGuests = UserFactory::createMany(8, [
+        $randomActiveGuests = UserFactory::createMany(50, [
             'roles' => ['ROLE_GUEST'],
             'isActive' => true,
         ]);
