@@ -73,7 +73,7 @@ final class PortfolioPageTest extends BaseWebTestCase
         $crawler = $this->client->click($firstAlbumLink);
         self::assertResponseIsSuccessful();
 
-        $albumId = $this->client->getRequest()->attributes->get('id');
+        $albumId = $this->client->getRequest()->attributes->get('album');
 
         $albumRepo = static::getContainer()->get(AlbumRepository::class);
         $album = $albumRepo->find($albumId);
